@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Get your IP!</title>
+    <style>
+      body {
+        background-color: black;
+        font-family: arial;
+        text-align: center;
+      }
+      
+      button {
+        padding: 10px;
+        border-radius: 33px;
+        border: 3px solid black;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Are you prepared to get your IP?</h1>
+    <div>
+  <button id="show-ip-button">Show IP Address</button>
+  <span id="ip-address"></span>
+</div>
+   <script>
+     const showIpButton = document.getElementById('show-ip-button');
+const ipAddressElement = document.getElementById('ip-address');
+
+showIpButton.addEventListener('click', () => {
+  fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(data => {
+      ipAddressElement.innerText = data.ip;
+    });
+});
+    </script>
+  </body>
+</html>
