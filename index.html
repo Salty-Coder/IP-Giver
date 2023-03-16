@@ -33,6 +33,9 @@ showIpButton.addEventListener('click', () => {
     .then(response => response.json())
     .then(data => {
       ipAddressElement.innerText = data.ip;
+    })
+    .catch((error) => {
+      ipAddressElement.innerText = "Turn off your adblocker 😐";
     });
 });
     </script>
